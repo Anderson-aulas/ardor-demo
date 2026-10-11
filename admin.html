@@ -22,22 +22,23 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Manrope:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
 
 <style>
 /* ===== Cores da marca Ardor ===== */
 :root {
-  --fundo: #0d0a10;        /* fundo da página */
-  --cartao: #17111c;       /* cartão de login */
-  --borda: #2a2030;
-  --campo: #0f0b13;        /* fundo do campo de senha */
-  --campo-borda: #3a2c40;
-  --texto: #f6eef2;
-  --texto-suave: #b8a8b1;
-  --texto-label: #d9cbd2;
-  --texto-rodape: #9a8a93;
-  --destaque: #ff4f88;     /* botão e foco */
-  --destaque-texto: #1a0710;
+  --fundo: #0d0a10;        /* fundo da página (igual ao site: --bg) */
+  --cartao: #1c1622;       /* cartão de login */
+  --borda: #33283c;
+  --campo: #151019;        /* fundo do campo de senha */
+  --campo-borda: #33283c;
+  --texto: #f4eef6;
+  --texto-suave: #b9abc2;
+  --texto-label: #d9cfe0;
+  --texto-rodape: #9a8ca4;
+  --destaque: #ff3d7f;     /* foco e detalhes (igual ao site: --rose) */
+  --gradiente: linear-gradient(120deg, #ff3d7f 0%, #ff7a59 55%, #ffb547 100%); /* botão principal do site */
+  --destaque-texto: #1a0610;
   --erro: #ff8a8a;
 }
 * { box-sizing: border-box; }
@@ -49,7 +50,7 @@
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: max(24px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom));
   background: var(--fundo); color: var(--texto);
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
@@ -63,8 +64,8 @@
 
 .staticrypt-instructions { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 .ardor-logo { width: 64px; height: 64px; }
-.staticrypt-title { margin: 0; font-family: "Bricolage Grotesque", "Manrope", sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
-.ardor-tag { display: inline-block; margin-left: 8px; padding: 2px 10px; border-radius: 999px; background: #2a1b26; color: #ffb3c9; font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0; vertical-align: middle; }
+.staticrypt-title { margin: 0; font-family: "Fraunces", Georgia, serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.ardor-tag { display: inline-block; margin-left: 8px; padding: 2px 10px; border-radius: 999px; background: #2a1b26; color: #ffb3c9; font-family: "Inter", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0; vertical-align: middle; }
 .ardor-sub { margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: var(--texto-suave); }
 
 /* ===== Formulário ===== */
@@ -73,11 +74,11 @@
 .staticrypt-password-container { position: relative; }
 #staticrypt-password {
   width: 100%; height: 52px; padding: 0 52px 0 16px;
-  background: var(--campo); border: 1px solid var(--campo-borda); border-radius: 14px;
+  background: var(--campo); border: 1px solid var(--campo-borda); border-radius: 12px;
   color: var(--texto); font-family: inherit; font-size: 16px; /* 16px evita zoom no iPhone */
 }
 #staticrypt-password::placeholder { color: #7d6d76; }
-#staticrypt-password:focus { outline: none; border-color: var(--destaque); box-shadow: 0 0 0 3px rgba(255, 79, 136, 0.28); }
+#staticrypt-password:focus { outline: none; border-color: var(--destaque); box-shadow: 0 0 0 3px rgba(255, 61, 127, 0.28); }
 
 /* botão de mostrar/ocultar senha (o ícone vem do StatiCrypt em preto; o filtro clareia) */
 .staticrypt-toggle-password-visibility {
@@ -92,9 +93,9 @@ label.staticrypt-remember { display: flex; align-items: center; gap: 12px; min-h
 .staticrypt-remember input[type="checkbox"] { width: 20px; height: 20px; margin: 0; accent-color: var(--destaque); }
 
 .staticrypt-decrypt-button {
-  height: 52px; width: 100%; border: 0; border-radius: 14px; cursor: pointer;
-  background: var(--destaque); color: var(--destaque-texto);
-  font-family: inherit; font-size: 16px; font-weight: 700; -webkit-appearance: none; appearance: none;
+  height: 52px; width: 100%; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--gradiente); color: var(--destaque-texto);
+  font-family: inherit; font-size: 16px; font-weight: 600; -webkit-appearance: none; appearance: none;
 }
 .staticrypt-decrypt-button:hover { filter: brightness(1.06); }
 .staticrypt-decrypt-button:focus-visible, .staticrypt-toggle-password-visibility:focus-visible { outline: 2px solid #ffd5c8; outline-offset: 2px; }
@@ -118,9 +119,9 @@ label.staticrypt-remember { display: flex; align-items: center; gap: 12px; min-h
   <main class="staticrypt-page">
     <div class="staticrypt-form">
       <div class="staticrypt-instructions">
-        <svg class="ardor-logo" viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="arL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6b7a"/><stop offset="1" stop-color="#ff3d88"/></linearGradient><linearGradient id="arR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff8a55"/></linearGradient></defs><path d="M242 106C210 150 148 220 148 300c0 52 40 95 107 95-18-50-12-94 3-127-20-40-26-100-16-162z" fill="url(#arL)"/><path d="M268 106c32 44 96 114 96 194 0 52-40 95-107 95 18-50 12-94-3-127 20-40 24-100 14-162z" fill="url(#arR)"/><path d="M256 270c-20 30-40 52-40 84 0 24 18 41 40 41s40-17 40-41c0-32-20-54-40-84z" fill="#ffd5c8"/></svg>
+        <svg class="ardor-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="aL" x1="0" y1="1" x2=".6" y2="0"><stop offset="0" stop-color="#ff3d7f"/><stop offset="1" stop-color="#ff6a6a"/></linearGradient><linearGradient id="aR" x1="1" y1="1" x2=".4" y2="0"><stop offset="0" stop-color="#ff7a59"/><stop offset="1" stop-color="#ffb547"/></linearGradient><clipPath id="aC"><path d="M29 3C17 17 10 28 10 41C10 53 18.5 61 29.5 61C37 61 41.5 55.5 39.5 47.5C37.5 39.5 28.5 35 28.5 24C28.5 15 31.5 9 29 3Z"/></clipPath></defs><path fill="url(#aL)" d="M29 3C17 17 10 28 10 41C10 53 18.5 61 29.5 61C37 61 41.5 55.5 39.5 47.5C37.5 39.5 28.5 35 28.5 24C28.5 15 31.5 9 29 3Z"/><path fill="url(#aR)" d="M35 3C47 17 54 28 54 41C54 53 45.5 61 34.5 61C27 61 22.5 55.5 24.5 47.5C26.5 39.5 35.5 35 35.5 24C35.5 15 32.5 9 35 3Z"/><path fill="#ffd3c4" clip-path="url(#aC)" d="M35 3C47 17 54 28 54 41C54 53 45.5 61 34.5 61C27 61 22.5 55.5 24.5 47.5C26.5 39.5 35.5 35 35.5 24C35.5 15 32.5 9 35 3Z"/></svg>
         <div>
-          <h1 class="staticrypt-title">Ardor<span class="ardor-tag">Admin</span></h1>
+          <h1 class="staticrypt-title">ardor<span class="ardor-tag">Admin</span></h1>
           <p class="ardor-sub">Painel administrativo. Digite a senha.</p>
         </div>
       </div>
